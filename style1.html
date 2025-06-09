@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>exam</title>
+  <link rel="stylesheet" href="style11.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Сайт розроблено студенткою Кузьмінська Діана, група ФІТ-2-11-->
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Туристична агенція "Funny"</title>
+        <link rel="stylesheet" href="style11.css">
+        <style>
+            body {
+                font-family: 'Segoe UI', sans-serif;
+                margin: 0;
+                background-color: #f0f4f8;
+            }
+            header, footer {
+                background-color: #f0f4f8;
+                color: #fff;
+                text-align: center;
+                padding: 1.5em 1em;
+            }
+            nav {
+                background-color: #005b99;
+                text-align: center;
+                padding: 1em;
+            }
+            nav a {
+                color: white;
+                text-decoration: none;
+                margin: 0 20px;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+            nav a:hover {
+                color: #ffcc00;
+            }
+            section {
+                padding: 3em 1em;
+                background-color: #ffffff;
+                margin: 1em auto;
+                border-radius: 12px;
+                max-width: 900px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            h2 {
+                color: #003366;
+            }
+            ul {
+                list-style-type: disc;
+                padding-left: 1.5em;
+            }
+            .calculator input, .calculator select {
+                padding: 8px;
+                margin: 5px 0;
+                width: 100%;
+                max-width: 300px;
+                display: block;
+            }
+            button {
+                padding: 10px 20px;
+                background-color: #005b99;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button:hover {
+                background-color: #003366;
+            }
+            .result {
+                margin-top: 15px;
+                font-size: 1.2em;
+                color: #007700;
+            }
+            .container {
+                padding: 0 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Туристична агенція "Funny"</h1>
+            <p>Виконала: Кузьмінська Діана, ФІТ-2-11</p>
+        </header>
+
+        <nav>
+            <a href="#home">Головна</a>
+            <a href="#services">Послуги</a>
+            <a href="#calculator">Калькулятор</a>
+            <a href="#about">Про нас</a>
+            <a href="#contacts">Контакти</a>
+        </nav>
+
+        <section id="home" class="container">
+            <h2>Ласкаво просимо!</h2>
+            <p>Ми допоможемо вам вибрати тур, швидко та зручно.</p>
+        </section>
+
+        <section id="services" class="container">
+            <h2>Наші послуги</h2>
+            <ul>
+                <li>Пошук турів — допоможемо вибрати найкращий тур за вашими побажаннями.</li>
+                <li>Гарячі тури — найкращі тури за низькою ціною.</li>
+                <li>Автобусні тури - зможете відвідати декілька країн.</li>
+            </ul>
+        </section>
+
+        <section id="calculator" class="container">
+            <h2>Калькулятор тура</h2>
+            <div class="calculator">
+                <label>Тип тура:
+                    <select id="type">
+                        <option value="auto">Розважальний</option>
+                        <option value="life">Відпочинок на морі</option>
+                        <option value="property">тур в декілька країн</option>
+                    </select>
+                </label>
+                <label>Сума туру (грн):
+                    <input type="number" id="amount" min="10000" step="1000" placeholder="Наприклад, 50000">
+                </label>
+                <label>дати (днів):
+                    <input type="number" id="days" min="1" max="10" placeholder="Від 1 до 10">
+                </label>
+                <button onclick="calculateInsurance()">Розрахувати</button>
+                <div class="result" id="result"></div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2>Про компанію</h2>
+            <p>Компанія "Funny" працює на ринку понад 20 років. Ми гарантуємо надійність, індивідуальний підхід та швидке оформлення турів. Наші фахівці готові допомогти вам у будь-якій ситуації.</p>
+        </section>
+
+        <section id="contacts" class="container">
+            <h2>Контакти</h2>
+            <p>Email: <a href="mailto:info@funny-insurance.ua">info@nadia-insurance.ua</a><br>
+            Телефон: +38 (044) 123-45-67<br>
+            Адреса: м. Вишневе, вул. Європейська, 30</p>
+            <iframe src="https://maps.app.goo.gl/93SaBoEbZWUJeMqz7" width="100%" height="300" style="border:0; border-radius:12px; margin-top:1em;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Туристична агенція "Funny" | Кузьмінська Діана, ФІТ-2-11</p>
+        </footer>
+
+        <script>
+            function calculateInsurance() {
+                const type = document.getElementById("type").value;
+                const amount = parseFloat(document.getElementById("amount").value);
+                const days = parseInt(document.getElementById("years").value);
+                const resultDiv = document.getElementById("result");
+
+                if (isNaN(amount) || isNaN(days) || amount <= 0 || years <= 0) {
+                    resultDiv.innerHTML = "<span style='color:red;'>Будь ласка, введіть коректні дані.</span>";
+                    return;
+                }
+
+                let rate;
+                switch(type) {
+                    case "auto": rate = 0.03; break;
+                    case "life": rate = 0.05; break;
+                    case "property": rate = 0.04; break;
+                }
+
+                const total = amount * rate * days;
+                resultDiv.innerHTML = `<span>Орієнтовна вартість туру: <strong>${total.toFixed(2)} грн</strong></span>`;
+            }
+
+            // Smooth scroll for nav links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        </script>
+    </body>
+</html>
+<!-- partial -->
+  <script  src="script11.js"></script>
+
+</body>
+</html>
