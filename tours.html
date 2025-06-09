@@ -1,0 +1,58 @@
+<!-- Сайт розроблено студенткою Кузьмінською Діаною, група ФІТ-2-11 -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Тури | TravelPro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🌍 TravelPro – Наші тури</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="tours.html">Тури</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="tour-grid">
+      <div class="tour-card">
+        <img src="https://source.unsplash.com/400x250/?paris" alt="Париж">
+        <h3>Париж</h3>
+        <p>Ціна: 300 €</p>
+        <button onclick="bookTour('Париж', 300)">Забронювати</button>
+      </div>
+      <div class="tour-card">
+        <img src="https://source.unsplash.com/400x250/?rome" alt="Рим">
+        <h3>Рим</h3>
+        <p>Ціна: 250 €</p>
+        <button onclick="bookTour('Рим', 250)">Забронювати</button>
+      </div>
+      <div class="tour-card">
+        <img src="https://source.unsplash.com/400x250/?barcelona" alt="Барселона">
+        <h3>Барселона</h3>
+        <p>Ціна: 270 €</p>
+        <button onclick="bookTour('Барселона', 270)">Забронювати</button>
+      </div>
+    </div>
+
+    <div id="booking-form" class="form-block" style="display:none;">
+      <h2>Бронювання туру: <span id="selected-tour"></span></h2>
+      <form onsubmit="calculateTotal(event)">
+        <label>Дата: <input type="date" id="travel-date" required></label>
+        <label>Кількість осіб: <input type="number" id="num-people" min="1" value="1" required></label>
+        <p>Загальна вартість: <strong><span id="total-cost">0</span> €</strong></p>
+        <button type="submit">Підтвердити</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Кузьмінська Діана, ФІТ-2-11
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
